@@ -91,18 +91,20 @@ export default function AssetPicker() {
                     <div className={`section-tab ${categoryTab === section && "selected"}`} onClick={() => setCategoryTab(section)}>{section}</div>
                 ))}
             </div>
-            <div className={"selection-category"}>
-                {categorySections[categoryTab].map((category) => (
-                    <div>
-                        <span className={"selection-category"}>{category}</span>
-                        <div className={"grid grid-cols-4"}>
-                            {assetManifest.filter(item => item.category === category).map(asset => (
-                                <AssetButton id={asset.id} isSelected={selectedAssetIds?.includes(asset.id)}/>
-                            ))}
+            {Object.keys(categorySections).map((section) =>  section !== "Head" && (
+                <div className={`selection-category ${section === categoryTab ? "" : "hidden"}`}>
+                    {categorySections[section].map((category) => (
+                        <div>
+                            <span className={"selection-category"}>{category}</span>
+                            <div className={"grid grid-cols-4"}>
+                                {assetManifest.filter(item => item.category === category).map(asset => (
+                                    <AssetButton id={asset.id} isSelected={selectedAssetIds?.includes(asset.id)}/>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
+            ))}
         </section>
     )
 }

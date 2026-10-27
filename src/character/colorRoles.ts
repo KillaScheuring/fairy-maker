@@ -60,3 +60,7 @@ export const colorOrder = [
 ]
 
 export type ColorRole = keyof typeof colorRoles;
+
+export function isColorRole(key: string): key is ColorRole {
+    return key in colorRoles;
+}

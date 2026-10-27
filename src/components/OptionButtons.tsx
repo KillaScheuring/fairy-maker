@@ -37,6 +37,7 @@ export default function OptionButtons() {
                 <span>Colors</span>
             </button>
             <ExportCharacterButton/>
+            <ExportCharacterButton/>
         </section>
     );
 }

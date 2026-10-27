@@ -718,10 +718,10 @@ export const categoryDisplays: CategoryDisplay[] = [
     },
     {
         category: "sleeves",
-        bases: ["body", "arms", "top", "bottoms"],
+        bases: ["body", "arms", "head", "top", "bottoms"],
         zoomStyle: {
             transform: "scale(2.5)",
-            transformOrigin: "50% 75%"
+            transformOrigin: "50% 50%"
         }
     },
     {

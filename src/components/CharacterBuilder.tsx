@@ -32,7 +32,7 @@ export default function CharacterBuilder() {
 
                     {/* Asset picker */}
                     <div>
-                        <section className="min-w-0 rounded-2xl border p-4 shadow-sm sm:p-6 mb-5">
+                        <section className="min-w-0 rounded-2xl border p-4 shadow-sm sm:p-6 mb-5 h-3/4">
                             <h2 className="mb-4 text-lg font-semibold">
                                 Customize
                             </h2>
@@ -41,7 +41,7 @@ export default function CharacterBuilder() {
                                 <AssetPicker />
                             </div>
                         </section>
-                        <section className="min-w-0 rounded-2xl border p-4 shadow-sm sm:p-6">
+                        <section className="min-w-0 rounded-2xl border p-4 shadow-sm sm:p-6 h-1/4">
                             <h2 className="mb-4 text-lg font-semibold">
                                 Options
                             </h2>
