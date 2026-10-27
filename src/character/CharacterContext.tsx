@@ -23,6 +23,8 @@ type CharacterContextValue = {
     setColor: (role: string, color: string) => void;
     randomizeAssets: () => void;
     randomizeColors: () => void;
+    exportAssetJson: () => void;
+    importAssetJson: () => void;
 };
 
 const defaultCharacter: CharacterState = {
@@ -129,8 +131,34 @@ export function CharacterProvider({children,}: {
         });
     }
 
+    function exportAssetJson() {
+        navigator.clipboard.writeText(JSON.stringify(character));
+        alert("Copied to clipboard");
+    }
+
+    async function importAssetJson() {
+        const characterJson = await navigator.clipboard.readText();
+        setCharacter((current) => {
+            try {
+                const newState = JSON.parse(characterJson);
+                newState.colorUpdated = !current.colorUpdated
+                return ({...newState})
+            }
+            catch {
+                alert("Error importing clipboard");
+            }
+        });
+        alert("Pasted from clipboard");
+    }
+
     return (
-        <CharacterContext.Provider value={{ character, setColor, selectAsset, selectedAssetIds, randomizeAssets, randomizeColors }}>
+        <CharacterContext.Provider value={{
+            character,
+            selectedAssetIds,
+            setColor, selectAsset,
+            randomizeAssets, randomizeColors,
+            exportAssetJson, importAssetJson
+        }}>
             {children}
         </CharacterContext.Provider>
     );
