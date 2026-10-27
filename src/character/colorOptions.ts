@@ -23,6 +23,16 @@ export const hairTones = [
 
 export const hairStroke = "#795D32";
 
+export const eyeColors = [
+    "#81badd",
+    "#989696",
+    "#634e34",
+    "#3d671d",
+    "#170600",
+    "#8a5814",
+    "#71518F",
+]
+
 // ChatGPT
 export const fairyClothingColors = [
     { name: "Moss", hex: "#78865A" },

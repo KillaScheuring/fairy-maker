@@ -8,7 +8,7 @@ import {
 import {categoryOrder} from "./categoryOrder.ts";
 import {assetManifest} from "./assetManifest.ts";
 import {colorOrder} from "./colorRoles.ts";
-import {fairyClothingColors, hairStroke, hairTones, skinStroke, skintones} from "./colorOptions.ts";
+import {eyeColors, fairyClothingColors, hairStroke, hairTones, skinStroke, skintones} from "./colorOptions.ts";
 
 type CharacterState = {
     selectedAssets: Record<string, string[]>;
@@ -48,11 +48,13 @@ const defaultCharacter: CharacterState = {
     colors: {
         hairFill: "#6b3f75",
         skinFill: "#f2c6a0",
+        eyesFill: "#170600",
         topFill: "#527c9a",
         bottomFill: "#805a91",
         shoesFill: "#805a91",
         hairOutline: "#764934",
         skinOutline: "#764934",
+        eyesOutline: "#170600",
         topOutline: "#764934",
         bottomOutline: "#764934",
         shoesOutline: "#764934",
@@ -117,6 +119,9 @@ export function CharacterProvider({children,}: {
                 case "skin":
                     selectedColors["skinFill"] = skintones[Math.floor(Math.random() * skintones.length)]
                     selectedColors["skinOutline"] = skinStroke
+                    break;
+                case "eyes":
+                    selectedColors["eyesFill"] = eyeColors[Math.floor(Math.random() * eyeColors.length)]
                     break;
                 default:
                     selectedColors[color+"Fill"] = fairyClothingColors[Math.floor(Math.random() * fairyClothingColors.length)].hex;

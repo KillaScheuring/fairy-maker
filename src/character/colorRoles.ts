@@ -19,6 +19,16 @@ export const colorRoles = {
         defaultColor: "#f2c6a0",
         inkscapeLabel: "skin - outline",
     },
+    eyesFill: {
+        label: "Eyes - Fill",
+        defaultColor: "#526B4D",
+        inkscapeLabel: "eyes - color",
+    },
+    eyesOutline: {
+        label: "Eyes - Stroke",
+        defaultColor: "#526B4D",
+        inkscapeLabel: "eyes - outline",
+    },
     topFill: {
         label: "Top - Fill",
         defaultColor: "#805a91",
@@ -54,6 +64,7 @@ export const colorRoles = {
 export const colorOrder = [
     "hair",
     "skin",
+    "eyes",
     "top",
     "bottom",
     "shoes",
