@@ -1,18 +1,21 @@
+import {colorPalettes} from "../character/colorOptions.ts";
+import {useCharacter} from "../character/CharacterContext.tsx";
+import type {ColorRole} from "../character/colorRoles.ts";
+
 type SplitColorCardProps = {
     title: string;
-    fillColor: string;
-    outlineColor: string;
-    onFillChange: (color: string) => void;
-    onOutlineChange: (color: string) => void;
+    fillRole: ColorRole;
+    outlineRole: ColorRole;
 };
 
 export function SplitColorCard({
                                    title,
-                                   fillColor,
-                                   outlineColor,
-                                   onFillChange,
-                                   onOutlineChange,
+                                   fillRole,
+                                   outlineRole,
                                }: SplitColorCardProps) {
+    const { character, setColor } = useCharacter();
+    const fillColor = character.colors[fillRole];
+    const outlineColor = character.colors[outlineRole];
     return (
         <div className="rounded-xl border border-gray-200 p-3 shadow-sm">
             <div className="flex h-6 overflow-hidden">
@@ -28,15 +31,22 @@ export function SplitColorCard({
                     <input
                         type="color"
                         value={fillColor}
-                        onChange={(event) => onFillChange(event.target.value)}
+                        onChange={(event) => setColor(fillRole, event.target.value)}
                         aria-label={`${title} fill color`}
                         className="absolute inset-0 px-3 h-full w-1/4 cursor-pointer opacity-0"
+                        list={`${fillRole}-preset-colors`}
                     />
+
+                    <datalist id={`${fillRole}-preset-colors`}>
+                        {colorPalettes[fillRole].map((color: string) => (
+                            <option value={color}/>
+                        ))}
+                    </datalist>
                 </label>
 
                 {/* Outline color: right half */}
                 <label
-                    className="relative flex-1 cursor-pointer border-l border-black/20"
+                    className="relative flex-1 cursor-pointer"
                     title={`Change ${title.toLowerCase()} outline`}
                 >
                     <span
@@ -46,10 +56,17 @@ export function SplitColorCard({
                     <input
                         type="color"
                         value={outlineColor}
-                        onChange={(event) => onOutlineChange(event.target.value)}
+                        onChange={(event) => setColor(outlineRole, event.target.value)}
                         aria-label={`${title} outline color`}
                         className="absolute inset-0 px-3 h-full w-1/4 cursor-pointer opacity-0"
+                        list={`${outlineRole}-preset-colors`}
                     />
+
+                    <datalist id={`${outlineRole}-preset-colors`}>
+                        {colorPalettes[outlineRole].map((color: string) => (
+                            <option value={color}/>
+                        ))}
+                    </datalist>
                 </label>
                 <h3 className="ms-2 text-sm font-medium capitalize w-1/2">
                     {title}

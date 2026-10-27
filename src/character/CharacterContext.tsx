@@ -8,7 +8,7 @@ import {
 import {categoryOrder} from "./categoryOrder.ts";
 import {assetManifest} from "./assetManifest.ts";
 import {colorOrder} from "./colorRoles.ts";
-import {eyeColors, fairyClothingColors, hairStroke, hairTones, skinStroke, skintones} from "./colorOptions.ts";
+import {eyeColors, clothingColors, hairTones, skintones} from "./colorOptions.ts";
 
 type CharacterState = {
     selectedAssets: Record<string, string[]>;
@@ -91,7 +91,7 @@ export function CharacterProvider({children,}: {
         const selectedAssets: Record<string, string[]> = {};
         categoryOrder.forEach(category => {
             if (["arms", "accessory"].includes(category)) return;
-            if (["underwear", "shoes"].includes(category)) {
+            if (["underwear", "shoes", "sleeves"].includes(category)) {
                 if (Math.floor(Math.random() * 100) < 25) {
                     selectedAssets[category] = []
                     return
@@ -114,17 +114,17 @@ export function CharacterProvider({children,}: {
             switch (color) {
                 case "hair":
                     selectedColors["hairFill"] = hairTones[Math.floor(Math.random() * hairTones.length)]
-                    selectedColors["hairOutline"] = hairStroke
+                    selectedColors["hairOutline"] = hairTones[0]
                     break;
                 case "skin":
                     selectedColors["skinFill"] = skintones[Math.floor(Math.random() * skintones.length)]
-                    selectedColors["skinOutline"] = skinStroke
+                    selectedColors["skinOutline"] = skintones[0]
                     break;
                 case "eyes":
                     selectedColors["eyesFill"] = eyeColors[Math.floor(Math.random() * eyeColors.length)]
                     break;
                 default:
-                    selectedColors[color+"Fill"] = fairyClothingColors[Math.floor(Math.random() * fairyClothingColors.length)].hex;
+                    selectedColors[color+"Fill"] = clothingColors[Math.floor(Math.random() * clothingColors.length)];
                     selectedColors[color+"Outline"] = "#526B4D";
             }
         });
