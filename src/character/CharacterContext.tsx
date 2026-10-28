@@ -8,7 +8,15 @@ import {
 import {categoryOrder} from "./categoryOrder.ts";
 import {assetManifest} from "./assetManifest.ts";
 import {colorOrder, type ColorRole} from "./colorRoles.ts";
-import {eyeColors, clothingColors, hairTones, skintones} from "./colorOptions.ts";
+import {
+    eyeColors,
+    clothingColors,
+    hairFills,
+    skinFills,
+    hairOutlines,
+    skinOutlines,
+    clothingOutlines
+} from "./colorOptions.ts";
 
 type CharacterState = {
     selectedAssets: Record<string, string[]>;
@@ -120,22 +128,28 @@ export function CharacterProvider({children,}: {
 
     function randomizeColors() {
         const selectedColors: Record<string, string> = {};
+        let index = 0;
         colorOrder.forEach(color => {
             switch (color) {
                 case "hair":
-                    selectedColors["hairFill"] = hairTones[Math.floor(Math.random() * hairTones.length)]
-                    selectedColors["hairOutline"] = hairTones[0]
+                    index = Math.floor(Math.random() * hairFills.length);
+                    selectedColors["hairFill"] = hairFills[index];
+                    selectedColors["hairOutline"] = hairOutlines[index];
                     break;
                 case "skin":
-                    selectedColors["skinFill"] = skintones[Math.floor(Math.random() * skintones.length)]
-                    selectedColors["skinOutline"] = skintones[0]
+                    index = Math.floor(Math.random() * skinFills.length)
+                    selectedColors["skinFill"] = skinFills[index]
+                    selectedColors["skinOutline"] = skinOutlines[index]
                     break;
                 case "eyes":
-                    selectedColors["eyesFill"] = eyeColors[Math.floor(Math.random() * eyeColors.length)]
+                    index = Math.floor(Math.random() * eyeColors.length)
+                    selectedColors["eyesFill"] = eyeColors[index]
+                    selectedColors["eyesOutline"] = selectedColors["skinOutline"]
                     break;
                 default:
-                    selectedColors[color+"Fill"] = clothingColors[Math.floor(Math.random() * clothingColors.length)];
-                    selectedColors[color+"Outline"] = "#526B4D";
+                    index = Math.floor(Math.random() * clothingColors.length)
+                    selectedColors[color+"Fill"] = clothingColors[index];
+                    selectedColors[color+"Outline"] = clothingOutlines[index];
             }
         });
         setCharacter((current) => {

@@ -1,84 +1,136 @@
-// https://www.color-hex.com/color-palette/547
-export const skintones = [
-    "#8d5524",
-    "#c68642",
-    "#e0ac69",
-    "#f1c27d",
-    "#ffdbac",
-];
-
-// https://www.etsy.com/listing/1010392857/basic-hair-color-palette-hex-codes-ipad
-export const hairTones = [
+export const hairFills = [
+    "#5C2B05",
+    "#8F563E",
+    "#977961",
+    "#BF5841",
+    "#D7C2C2",
     "#3B270C",
     "#795D32",
     "#E5C8A9",
-    "#5C2B05",
-    "#8F563E",
-    "#BF5841",
-    "#977961",
-    "#D7C2C2",
+    "#34354f",
+    "#bd7189"
 ];
 
-export const hairStroke = "#795D32";
+export const hairOutlines = [
+    "#3D1C03",
+    "#613725",
+    "#69513F",
+    "#853A2B",
+    "#AE8C6B",
+    "#251807",
+    "#503C20",
+    "#202136",
+    "#82455b",
+    "#A18A8D"
+];
+
+export const skinFills = [
+    "#8d5524",
+    "#f2c6a0",
+    "#c68642",
+    "#e0ac69",
+    "#f1c27d"
+];
+
+export const skinOutlines = [
+    "#603719",
+    "#8F572C",
+    "#A8733F",
+    "#b5805d",
+    "#B88A50"
+];
 
 // https://www.color-hex.com/color-palette/1038642
 // https://www.color-hex.com/color-palette/4617
 // https://www.color-hex.com/color-palette/10120
 export const eyeColors = [
-    "#81badd",
-    "#989696",
-    "#634e34",
-    "#3d671d",
     "#170600",
+    "#634e34",
     "#8a5814",
+    "#3d671d",
+    "#638b76",
+    "#81badd",
+    "#9d8bc4",
     "#71518F",
-]
+    "#989696"
+];
 
 // ChatGPT
 export const clothingColors = [
+    "#B96F50",
+    "#E7A36F",
+    "#D6A64F",
+    "#d6b36d",
     "#78865A",
     "#526B4D",
     "#A4B49A",
+    "#7e9c8a",
+    "#C5E0DE",
     "#386F70",
-    "#C77D91",
-    "#A18AB8",
-    "#8875A9",
-    "#899DD1",
-    "#D6A64F",
-    "#B96F50",
-    "#E7A36F",
-    "#A9B2C3",
+    "#39465f",
     "#535B83",
+    "#899DD1",
+    "#A9B2C3",
+    "#5f587a",
+    "#8875A9",
     "#71518F",
+    "#805a91",
+    "#A18AB8",
     "#70415F",
-    "#C5E0DE"
+    "#C77D91",
+    "#e9b9c6"
 ] as const;
 
+export const clothingOutlines = [
+    "#824832",
+    "#AD7045",
+    "#8b6025",
+    "#98712F",
+    "#505A3B",
+    "#354832",
+    "#718467",
+    "#496b5b",
+    "#83AEAA",
+    "#244B4C",
+    "#222c40",
+    "#363C5B",
+    "#596FA3",
+    "#727E94",
+    "#40334f",
+    "#4C3268",
+    "#5D4B7D",
+    "#50365f",
+    "#715A88",
+    "#482940",
+    "#914F63",
+    "#b66d83"
+];
+
 export const colorPalettes = {
-    hairFill: hairTones,
-    hairOutline: hairTones,
-    skinFill: skintones,
-    skinOutline: skintones,
+    hairFill: hairFills,
+    hairOutline: hairOutlines,
+    skinFill: skinFills,
+    skinOutline: skinOutlines,
     eyesFill: eyeColors,
-    eyesOutline: skintones,
+    eyesOutline: skinOutlines,
     topFill: clothingColors,
-    topOutline: clothingColors,
+    topOutline: clothingOutlines,
     bottomFill: clothingColors,
-    bottomOutline: clothingColors,
+    bottomOutline: clothingOutlines,
     shoesFill: clothingColors,
-    shoesOutline: clothingColors,
+    shoesOutline: clothingOutlines,
 }
 
 export const presetPalettes = [
     {
         hairFill: "#bf5841",
-        skinFill: "#ffdbac",
+        skinFill: "#f2c6a0",
         eyesFill: "#3d671d",
         topFill: "#386f70",
         bottomFill: "#c77d91",
         shoesFill: "#c77d91",
         hairOutline: "#5c2b05",
-        skinOutline: "#c68642",
+        skinOutline: "#B88668",
         eyesOutline: "#170600",
         topOutline: "#535b83",
         bottomOutline: "#70415f",
@@ -86,13 +138,13 @@ export const presetPalettes = [
     },
     {
         hairFill: "#3B270C",
-        skinFill: "#f1c27d",
+        skinFill: "#e0ac69",
         eyesFill: "#170600",
         topFill: "#71518F",
         bottomFill: "#A18AB8",
         shoesFill: "#8875a9",
         hairOutline: "#3b270c",
-        skinOutline: "#8d5524",
+        skinOutline: "#A8733F",
         eyesOutline: "#170600",
         topOutline: "#535b83",
         bottomOutline: "#535b83",
@@ -107,7 +159,7 @@ export const presetPalettes = [
         shoesFill: "#d6b36d",
         hairOutline: "#82455b",
         skinOutline: "#b5805d",
-        eyesOutline: "#426451",
+        eyesOutline: "#b5805d",
         topOutline: "#b66d83",
         bottomOutline: "#496b5b",
         shoesOutline: "#8b6025",
@@ -121,7 +173,7 @@ export const presetPalettes = [
         shoesFill: "#5f587a",
         hairOutline: "#202136",
         skinOutline: "#b5805d",
-        eyesOutline: "#4e365f",
+        eyesOutline: "#b5805d",
         topOutline: "#50365f",
         bottomOutline: "#222c40",
         shoesOutline: "#40334f",

@@ -64,10 +64,10 @@ export const colorRoles = {
 export const colorOrder = [
     "hair",
     "skin",
-    "eyes",
     "top",
     "bottom",
     "shoes",
+    "eyes",
 ]
 
 export type ColorRole = keyof typeof colorRoles;
