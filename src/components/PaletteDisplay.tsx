@@ -9,7 +9,7 @@ export function PaletteDisplay({presetPalette}: SplitColorCardProps) {
     const { setPalette } = useCharacter();
     return (
         <div className="rounded-xl border border-gray-200 p-3 shadow-sm">
-            <div className="grid grid-cols-4 gap-1 overflow-hidden"
+            <div className="grid md:grid-cols-4 grid-cols-3 gap-1 overflow-hidden"
                 onClick={() => setPalette(presetPalette)}
             >
                 {Object.keys(colorRoles).map((colorRole: string) => {

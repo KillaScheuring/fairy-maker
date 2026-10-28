@@ -87,7 +87,7 @@ function CategoryTab({label, onClick, isSelected}: { label: string; onClick?: ()
     console.log(isSelected)
     return (
         <button
-            className={`${isSelected ? "bg-purple-200 text-black" : "bg-purple-500 text-white"} hover:bg-blue-500 text-xs font-bold py-1 px-2 rounded`}
+            className={`${isSelected ? "bg-purple-200 text-black" : "bg-purple-500 text-white"} hover:bg-blue-500 text-xs font-bold md:py-1 py-0 px-2 md:px-2 rounded`}
             onClick={onClick}
         >
             {label}
@@ -118,7 +118,7 @@ export default function AssetPicker() {
                         {categorySections[section].map((category) => (
                             <div className="min-h-0 flex-1 overflow-y-auto">
                                 <span className={"selection-category"}>{category}</span>
-                                <div className={"grid grid-cols-4 gap-y-5"}>
+                                <div className={"grid md:grid-cols-4 grid-cols-3 gap-y-5"}>
                                     {assetManifest.filter(item => item.category === category).map(asset => (
                                         <AssetButton id={asset.id} isSelected={selectedAssetIds?.includes(asset.id)}/>
                                     ))}

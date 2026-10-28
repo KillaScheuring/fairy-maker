@@ -79,11 +79,11 @@ export default function OptionButtons() {
         }
     }
     return (
-        <section className="grid grid-cols-3 gap-2">
+        <section className="grid md:grid-cols-3 gap-2 md:p-0 p-2">
             <OptionButton onClick={() => randomizeAssets()} icon={"shuffle"} label={"Assets"}/>
             <OptionButton onClick={() => randomizeColors()} icon={"shuffle"} label={"Colors"}/>
             <OptionButton onClick={() => handleExport()} icon={"download"} label={"Export"} disabled={exporting}/>
-            <div></div>
+            <div className="hidden md:block"></div>
             <OptionButton onClick={() => importAssetJson()} icon={"paste"} label={"JSON"}/>
             <OptionButton onClick={() => exportAssetJson()} icon={"copy"} label={"JSON"}/>
         </section>

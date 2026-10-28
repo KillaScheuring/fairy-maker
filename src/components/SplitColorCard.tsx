@@ -18,7 +18,7 @@ export function SplitColorCard({
     const outlineColor = character.colors[outlineRole];
     return (
         <div className="rounded-xl border border-gray-200 p-2 shadow-sm">
-            <div className="flex md:h-4 sm:h-6 overflow-hidden">
+            <div className="flex h-4 overflow-hidden">
                 {/* Fill color: left half */}
                 <label
                     className="relative flex-1 cursor-pointer"
