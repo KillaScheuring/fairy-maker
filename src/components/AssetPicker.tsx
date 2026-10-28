@@ -1,15 +1,15 @@
 import {useState} from 'react';
 import {assetManifest, categoryDisplays, assetDisplays, type Piece} from "../character/assetManifest";
-import { layerOrder } from "../character/layerOrder";
+import {layerOrder} from "../character/layerOrder";
 import {categorySections} from "../character/categoryOrder.ts";
-import { useCharacter } from "../character/CharacterContext";
+import {useCharacter} from "../character/CharacterContext";
 import {RecoloredSvg} from "./RecoloredSvg.tsx";
 import {presetPalettes} from "../character/colorOptions.ts";
 import type {ColorRole} from "../character/colorRoles.ts";
 import {PaletteDisplay} from "./PaletteDisplay.tsx";
 
-function AssetButton({id, isSelected}: {id: string, isSelected?: boolean}) {
-    const { character, selectAsset } = useCharacter();
+function AssetButton({id, isSelected}: { id: string, isSelected?: boolean }) {
+    const {character, selectAsset} = useCharacter();
     const asset = assetManifest.find(item => item.id === id);
 
     if (!asset) return null;
@@ -36,8 +36,7 @@ function AssetButton({id, isSelected}: {id: string, isSelected?: boolean}) {
     const handleClick = () => {
         if (character.selectedAssets[asset.category].includes(id)) {
             selectAsset(asset.category, [])
-        }
-        else {
+        } else {
             selectAsset(asset.category, [id])
         }
     }
@@ -47,8 +46,7 @@ function AssetButton({id, isSelected}: {id: string, isSelected?: boolean}) {
         let currentSelection = [...character.selectedAssets[asset.category]]
         if (currentSelection.includes(id)) {
             currentSelection = currentSelection.filter(item => item !== id);
-        }
-        else {
+        } else {
             currentSelection = [...currentSelection, id]
         }
         selectAsset(asset.category, currentSelection)
@@ -67,7 +65,8 @@ function AssetButton({id, isSelected}: {id: string, isSelected?: boolean}) {
 
     return (
         <div className="asset-card">
-            <div className={`asset-image ${isSelected ? 'selected' : ''}`} onClick={asset.category === "accessory" ? handleAccessoryClick : handleClick}>
+            <div className={`asset-image ${isSelected ? 'selected' : ''}`}
+                 onClick={asset.category === "accessory" ? handleAccessoryClick : handleClick}>
                 <div className="asset-thumbnail">
                     <div className="asset-thumbnail-zoom" style={zoomStyle}>
                         {pieces.map((piece) => (
@@ -84,42 +83,61 @@ function AssetButton({id, isSelected}: {id: string, isSelected?: boolean}) {
     )
 }
 
+function CategoryTab({label, onClick, isSelected}: { label: string; onClick?: () => void, isSelected?: boolean }) {
+    console.log(isSelected)
+    return (
+        <button
+            className={`${isSelected ? "bg-purple-200 text-black" : "bg-purple-500 text-white"} hover:bg-blue-500 text-xs font-bold py-1 px-2 rounded`}
+            onClick={onClick}
+        >
+            {label}
+        </button>
+    )
+}
+
 export default function AssetPicker() {
-    const { selectedAssetIds } = useCharacter();
+    const {selectedAssetIds} = useCharacter();
     const [categoryTab, setCategoryTab] = useState("Hair");
     return (
-        <section className="selection-panel">
-            <div className={"section-tabs"}>
-                <div className={`section-tab ${categoryTab === "Palettes" && "selected"}`} onClick={() => setCategoryTab("Palettes")}>Palettes</div>
-                {Object.keys(categorySections).map((section) =>  section !== "Head" && (
-                    <div className={`section-tab ${categoryTab === section && "selected"}`} onClick={() => setCategoryTab(section)}>{section}</div>
+        <section className="flex h-full min-h-0 flex-col pt-2">
+            <div className={"justify-between flex pb-2"}>
+                <CategoryTab label={"Palettes"}
+                             isSelected={categoryTab === "Palettes"}
+                             onClick={() => setCategoryTab("Palettes")}
+                />
+                {Object.keys(categorySections).map((section) => section !== "Head" && (
+                    <CategoryTab label={section}
+                                 isSelected={categoryTab === section}
+                                 onClick={() => setCategoryTab(section)}
+                    />
                 ))}
             </div>
-            {Object.keys(categorySections).map((section) =>  section !== "Head" && (
-                <div className={`selection-category ${section === categoryTab ? "" : "hidden"}`}>
-                    {categorySections[section].map((category) => (
-                        <div>
-                            <span className={"selection-category"}>{category}</span>
-                            <div className={"grid grid-cols-4"}>
-                                {assetManifest.filter(item => item.category === category).map(asset => (
-                                    <AssetButton id={asset.id} isSelected={selectedAssetIds?.includes(asset.id)}/>
-                                ))}
+            <div className="min-h-0 flex-1 overflow-y-auto">
+                {Object.keys(categorySections).map((section) => section !== "Head" && (
+                    <div className={`selection-category ${section === categoryTab ? "" : "hidden"}`}>
+                        {categorySections[section].map((category) => (
+                            <div className="min-h-0 flex-1 overflow-y-auto">
+                                <span className={"selection-category"}>{category}</span>
+                                <div className={"grid grid-cols-4 gap-y-5"}>
+                                    {assetManifest.filter(item => item.category === category).map(asset => (
+                                        <AssetButton id={asset.id} isSelected={selectedAssetIds?.includes(asset.id)}/>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
-            ))}
-            <div className={`selection-category ${categoryTab === "Palettes" ? "" : "hidden"}`}>
-                <span className={"selection-category"}>Palettes</span>
-                <div className={"grid grid-cols-2 gap-3"}>
-                    {presetPalettes.map((presetPalette: Record<ColorRole, string>) => (
-                        <PaletteDisplay
-                            presetPalette={presetPalette}
-                        />
-                    ))}
+                        ))}
+                    </div>
+                ))}
+                <div className={`selection-category ${categoryTab === "Palettes" ? "" : "hidden"}`}>
+                    <span className={"selection-category"}>Palettes</span>
+                    <div className={"grid grid-cols-2 gap-3"}>
+                        {presetPalettes.map((presetPalette: Record<ColorRole, string>) => (
+                            <PaletteDisplay
+                                presetPalette={presetPalette}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
-
         </section>
     )
 }

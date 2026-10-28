@@ -35,7 +35,7 @@ export default function CharacterPreview() {
             style={{
                 position: "relative",
                 width: "100%",
-                aspectRatio: "2 / 3",
+                aspectRatio: "1700 / 1372",
                 overflow: "hidden",
                 backgroundColor: "white",
             }}

@@ -17,8 +17,8 @@ export function SplitColorCard({
     const fillColor = character.colors[fillRole];
     const outlineColor = character.colors[outlineRole];
     return (
-        <div className="rounded-xl border border-gray-200 p-3 shadow-sm">
-            <div className="flex h-6 overflow-hidden">
+        <div className="rounded-xl border border-gray-200 p-2 shadow-sm">
+            <div className="flex md:h-4 sm:h-6 overflow-hidden">
                 {/* Fill color: left half */}
                 <label
                     className="relative flex-1 cursor-pointer"
@@ -68,7 +68,7 @@ export function SplitColorCard({
                         ))}
                     </datalist>
                 </label>
-                <h3 className="ms-2 text-sm font-medium capitalize w-1/2">
+                <h3 className="ms-2 md:text-xs font-medium capitalize w-1/2">
                     {title}
                 </h3>
             </div>

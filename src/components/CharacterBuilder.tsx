@@ -8,47 +8,26 @@ import OptionButtons from "./OptionButtons.tsx";
 export default function CharacterBuilder() {
     return (
         <CharacterProvider>
-            <main className="min-h-screen p-4 sm:p-6">
-                <header className="mx-auto mb-6 max-w-7xl">
-                    <h1 className="text-2xl font-bold sm:text-3xl">
-                        Fairy Character Creator
-                    </h1>
-                    <p className="mt-1 text-sm text-gray-600">
-                        Customize your character's appearance.
-                    </p>
-                </header>
-
-                <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.8fr)]">
-                    {/* Character preview */}
-                    <section className="min-w-0 rounded-2xl border p-4 shadow-sm sm:p-6">
-                        <h2 className="mb-4 text-lg font-semibold">
-                            Preview
-                        </h2>
-
-                        <div className="mx-auto w-full max-w-lg">
-                            <CharacterPreview />
-                        </div>
-                    </section>
-
-                    {/* Asset picker */}
-                    <div>
-                        <section className="min-w-0 rounded-2xl border p-4 shadow-sm sm:p-6 mb-5 h-3/4">
-                            <h2 className="mb-4 text-lg font-semibold">
-                                Customize
-                            </h2>
-                            <ColorSelector/>
-                            <div className="max-h-[75vh] overflow-y-auto">
-                                <AssetPicker />
-                            </div>
-                        </section>
-                        <section className="min-w-0 rounded-2xl border p-4 shadow-sm sm:p-6 h-1/4">
-                            <h2 className="mb-4 text-lg font-semibold">
-                                Options
-                            </h2>
-                            <OptionButtons/>
-                        </section>
+            <main className="mx-auto md:w-9/10 grid h-dvh grid-cols-2 gap-1 overflow-hidden p-2">
+                {/* Left half: Character preview */}
+                <section className="min-h-0 min-w-0 p-2 rounded-2xl border">
+                    <h2 className="pb-1">Preview</h2>
+                    <div className="h-full w-full items-center justify-center">
+                        <CharacterPreview />
                     </div>
-                </div>
+                </section>
+                {/* Right half: Customization and export */}
+                <section className="grid min-h-0 min-w-0 grid-rows-[3fr_1fr] gap-2 px-2">
+                    <div className="flex min-h-0 flex-col overflow-hidden rounded-2xl border p-4">
+                        <h2>Customize</h2>
+                        <ColorSelector/>
+                        <AssetPicker/>
+                    </div>
+
+                    <div className="min-h-0 overflow-y-auto rounded-2xl border md:p-3">
+                        <OptionButtons/>
+                    </div>
+                </section>
             </main>
         </CharacterProvider>
     )
