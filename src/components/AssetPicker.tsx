@@ -4,6 +4,9 @@ import { layerOrder } from "../character/layerOrder";
 import {categorySections} from "../character/categoryOrder.ts";
 import { useCharacter } from "../character/CharacterContext";
 import {RecoloredSvg} from "./RecoloredSvg.tsx";
+import {presetPalettes} from "../character/colorOptions.ts";
+import type {ColorRole} from "../character/colorRoles.ts";
+import {PaletteDisplay} from "./PaletteDisplay.tsx";
 
 function AssetButton({id, isSelected}: {id: string, isSelected?: boolean}) {
     const { character, selectAsset } = useCharacter();
@@ -87,6 +90,7 @@ export default function AssetPicker() {
     return (
         <section className="selection-panel">
             <div className={"section-tabs"}>
+                <div className={`section-tab ${categoryTab === "Palettes" && "selected"}`} onClick={() => setCategoryTab("Palettes")}>Palettes</div>
                 {Object.keys(categorySections).map((section) =>  section !== "Head" && (
                     <div className={`section-tab ${categoryTab === section && "selected"}`} onClick={() => setCategoryTab(section)}>{section}</div>
                 ))}
@@ -105,6 +109,17 @@ export default function AssetPicker() {
                     ))}
                 </div>
             ))}
+            <div className={`selection-category ${categoryTab === "Palettes" ? "" : "hidden"}`}>
+                <span className={"selection-category"}>Palettes</span>
+                <div className={"grid grid-cols-2 gap-3"}>
+                    {presetPalettes.map((presetPalette: Record<ColorRole, string>) => (
+                        <PaletteDisplay
+                            presetPalette={presetPalette}
+                        />
+                    ))}
+                </div>
+            </div>
+
         </section>
     )
 }

@@ -7,13 +7,13 @@ import {
 } from "react";
 import {categoryOrder} from "./categoryOrder.ts";
 import {assetManifest} from "./assetManifest.ts";
-import {colorOrder} from "./colorRoles.ts";
+import {colorOrder, type ColorRole} from "./colorRoles.ts";
 import {eyeColors, clothingColors, hairTones, skintones} from "./colorOptions.ts";
 
 type CharacterState = {
     selectedAssets: Record<string, string[]>;
     colors: Record<string, string>;
-colorUpdated: boolean;
+    colorUpdated: boolean;
 };
 
 type CharacterContextValue = {
@@ -21,6 +21,7 @@ type CharacterContextValue = {
     selectAsset: (category: string, assetIds: string[]) => void;
     selectedAssetIds: string[] | null;
     setColor: (role: string, color: string) => void;
+    setPalette: (palette: Record<ColorRole, string>) => void;
     randomizeAssets: () => void;
     randomizeColors: () => void;
     exportAssetJson: () => void;
@@ -83,6 +84,15 @@ export function CharacterProvider({children,}: {
             const newState = {...current};
             newState.colors[role] = color
             newState.colorUpdated = !newState.colorUpdated
+            return ({...newState})
+        });
+    }
+
+    function setPalette(palette: Record<ColorRole, string>) {
+        setCharacter((current) => {
+            const newState = {...current};
+            newState.colors = palette
+            newState.colorUpdated = !current.colorUpdated
             return ({...newState})
         });
     }
@@ -160,7 +170,7 @@ export function CharacterProvider({children,}: {
         <CharacterContext.Provider value={{
             character,
             selectedAssetIds,
-            setColor, selectAsset,
+            setColor, setPalette, selectAsset,
             randomizeAssets, randomizeColors,
             exportAssetJson, importAssetJson
         }}>

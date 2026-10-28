@@ -4,7 +4,6 @@ import {SplitColorCard} from "./SplitColorCard.tsx";
 
 
 export default function ColorSelector() {
-
     return (
         <section className="space-y-3">
             <div className={"grid grid-cols-2 gap-3"}>
