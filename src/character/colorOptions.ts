@@ -1,3 +1,5 @@
+import type {ColorRole} from "./colorRoles.ts";
+
 export const hairFills = [
     "#5C2B05",
     "#8F563E",
@@ -106,6 +108,28 @@ export const clothingOutlines = [
     "#b66d83"
 ];
 
+export const wingsColors = [
+    "#E9B9C6",
+    "#C5E0DE",
+    "#535B83",
+    "#B96F50",
+    "#526B4D",
+    "#A8A1BF",
+    "#F1C27D",
+    "#34354F",
+]
+
+export const wingOutlines = [
+    "#70415F",
+    "#386F70",
+    "#C5E0DE",
+    "#F1C27D",
+    "#C77D91",
+    "#71518F",
+    "#78865A",
+    "#BD7189",
+]
+
 export const colorPalettes = {
     hairFill: hairFills,
     hairOutline: hairOutlines,
@@ -119,9 +143,11 @@ export const colorPalettes = {
     bottomOutline: clothingOutlines,
     shoesFill: clothingColors,
     shoesOutline: clothingOutlines,
+    wingsFill: clothingColors,
+    wingsOutline: clothingOutlines,
 }
 
-export const presetPalettes = [
+export const presetPalettes: Record<ColorRole, string>[] = [
     {
         hairFill: "#bf5841",
         skinFill: "#f2c6a0",
@@ -134,7 +160,9 @@ export const presetPalettes = [
         eyesOutline: "#170600",
         topOutline: "#535b83",
         bottomOutline: "#70415f",
-        shoesOutline: "#70415f"
+        shoesOutline: "#70415f",
+        wingsFill: "#E9B9C6",
+        wingsOutline: "#70415F",
     },
     {
         hairFill: "#3B270C",
@@ -148,7 +176,9 @@ export const presetPalettes = [
         eyesOutline: "#170600",
         topOutline: "#535b83",
         bottomOutline: "#535b83",
-        shoesOutline: "#535b83"
+        shoesOutline: "#535b83",
+        wingsFill: "#E9B9C6",
+        wingsOutline: "#70415F",
     },
     {
         hairFill: "#bd7189",
@@ -163,6 +193,8 @@ export const presetPalettes = [
         topOutline: "#b66d83",
         bottomOutline: "#496b5b",
         shoesOutline: "#8b6025",
+        wingsFill: "#E9B9C6",
+        wingsOutline: "#70415F",
     },
     {
         hairFill: "#34354f",
@@ -177,5 +209,7 @@ export const presetPalettes = [
         topOutline: "#50365f",
         bottomOutline: "#222c40",
         shoesOutline: "#40334f",
+        wingsFill: "#E9B9C6",
+        wingsOutline: "#70415F",
     }
 ]

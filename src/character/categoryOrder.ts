@@ -14,6 +14,7 @@ export const categoryOrder = [
     "accessory",
     "body",
     "arms",
+    "wings",
     "background"
 ] as const;
 
@@ -24,7 +25,7 @@ export const categorySections: Record<string, Category[]> = {
         // "eyes",
         // "eyebrows",
     ],
-    "Body": ["body", "arms"],
+    "Body": ["body", "arms", "wings"],
     "Hair": ["bangs", "hair"],
     "Clothes": [
         "top",

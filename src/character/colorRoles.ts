@@ -59,15 +59,26 @@ export const colorRoles = {
         defaultColor: "#805a91",
         inkscapeLabel: "shoes - outline",
     },
+    wingsFill: {
+        label: "Wings - Fill",
+        defaultColor: "#805a91",
+        inkscapeLabel: "wings - fill",
+    },
+    wingsOutline: {
+        label: "Wings - Stroke",
+        defaultColor: "#805a91",
+        inkscapeLabel: "wings - outline",
+    },
 } as const;
 
 export const colorOrder = [
     "hair",
     "skin",
+    "eyes",
+    "wings",
     "top",
     "bottom",
     "shoes",
-    "eyes",
 ]
 
 export type ColorRole = keyof typeof colorRoles;

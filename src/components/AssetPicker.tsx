@@ -84,7 +84,6 @@ function AssetButton({id, isSelected}: { id: string, isSelected?: boolean }) {
 }
 
 function CategoryTab({label, onClick, isSelected}: { label: string; onClick?: () => void, isSelected?: boolean }) {
-    console.log(isSelected)
     return (
         <button
             className={`${isSelected ? "bg-purple-200 text-black" : "bg-purple-500 text-white"} hover:bg-blue-500 text-xs font-bold md:py-1 py-0 px-2 md:px-2 rounded`}

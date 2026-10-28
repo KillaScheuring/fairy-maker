@@ -633,6 +633,30 @@ export const assetManifest: Asset[] = [
         ],
         palette: "skin"
     },
+    {
+        id: "wings_01",
+        name: "Monarch",
+        category: "wings",
+        pieces: [
+            {
+                file: "/assets/body/wings_01.svg",
+                layer: "wings",
+            },
+        ],
+        palette: "wings"
+    },
+    {
+        id: "wings_02",
+        name: "Maple",
+        category: "wings",
+        pieces: [
+            {
+                file: "/assets/body/wings_02.svg",
+                layer: "wings",
+            },
+        ],
+        palette: "wings"
+    },
 ];
 
 export const categoryDisplays: CategoryDisplay[] = [
@@ -722,6 +746,14 @@ export const categoryDisplays: CategoryDisplay[] = [
         zoomStyle: {
             transform: "scale(2.5)",
             transformOrigin: "50% 50%"
+        }
+    },
+    {
+        category: "wings",
+        bases: ["body", "arms", "head"],
+        zoomStyle: {
+            transform: "scale(2)",
+            transformOrigin: "50% 40%"
         }
     },
     {

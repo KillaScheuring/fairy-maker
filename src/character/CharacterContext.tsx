@@ -15,7 +15,7 @@ import {
     skinFills,
     hairOutlines,
     skinOutlines,
-    clothingOutlines
+    clothingOutlines, wingsColors, wingOutlines, presetPalettes
 } from "./colorOptions.ts";
 
 type CharacterState = {
@@ -39,7 +39,7 @@ type CharacterContextValue = {
 const defaultCharacter: CharacterState = {
     selectedAssets: {
         body: ["body_01"],
-        hair: ["hair_05"],
+        hair: ["hair_01"],
         accessory: [],
         eyebrows: ["eyebrows_01"],
         bangs: ["bangs_02"],
@@ -52,22 +52,10 @@ const defaultCharacter: CharacterState = {
         head: ["head_01"],
         ears: ["ears_01"],
         eyes: ["eyes_01"],
+        wings: ["wings_02"],
         background: ["background_01"],
     },
-    colors: {
-        hairFill: "#6b3f75",
-        skinFill: "#f2c6a0",
-        eyesFill: "#170600",
-        topFill: "#527c9a",
-        bottomFill: "#805a91",
-        shoesFill: "#805a91",
-        hairOutline: "#764934",
-        skinOutline: "#764934",
-        eyesOutline: "#170600",
-        topOutline: "#764934",
-        bottomOutline: "#764934",
-        shoesOutline: "#764934",
-    },
+    colors: presetPalettes[2],
     colorUpdated: true
 };
 
@@ -109,7 +97,7 @@ export function CharacterProvider({children,}: {
         const selectedAssets: Record<string, string[]> = {};
         categoryOrder.forEach(category => {
             if (["arms", "accessory"].includes(category)) return;
-            if (["underwear", "shoes", "sleeves"].includes(category)) {
+            if (["underwear", "shoes", "sleeves", "wings"].includes(category)) {
                 if (Math.floor(Math.random() * 100) < 25) {
                     selectedAssets[category] = []
                     return
@@ -145,6 +133,11 @@ export function CharacterProvider({children,}: {
                     index = Math.floor(Math.random() * eyeColors.length)
                     selectedColors["eyesFill"] = eyeColors[index]
                     selectedColors["eyesOutline"] = selectedColors["skinOutline"]
+                    break;
+                case "wings":
+                    index = Math.floor(Math.random() * wingsColors.length)
+                    selectedColors["wingsFill"] = wingsColors[index]
+                    selectedColors["wingsOutline"] = wingOutlines[index]
                     break;
                 default:
                     index = Math.floor(Math.random() * clothingColors.length)

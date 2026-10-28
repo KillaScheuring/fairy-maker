@@ -1,6 +1,7 @@
 
 export const layerOrder = [
     "background",
+    "wings",
     "hairBack",
     "accessoriesBack",
     "clothesBack",
