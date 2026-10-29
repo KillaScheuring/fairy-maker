@@ -484,18 +484,18 @@ export const assetManifest: Asset[] = [
         ],
         palette: "top"
     },
-    {
-        id: "top_03",
-        name: "Poofy",
-        category: "top",
-        pieces: [
-            {
-                file: "/assets/clothes/front/top_03.svg",
-                layer: "clothesFront",
-            },
-        ],
-        palette: "top"
-    },
+    // {
+    //     id: "top_03",
+    //     name: "Poofy",
+    //     category: "top",
+    //     pieces: [
+    //         {
+    //             file: "/assets/clothes/front/top_03.svg",
+    //             layer: "clothesFront",
+    //         },
+    //     ],
+    //     palette: "top"
+    // },
     {
         id: "top_04",
         name: "Corset",
@@ -652,6 +652,30 @@ export const assetManifest: Asset[] = [
         pieces: [
             {
                 file: "/assets/body/wings_02.svg",
+                layer: "wings",
+            },
+        ],
+        palette: "wings"
+    },
+    {
+        id: "wings_03",
+        name: "Fairy",
+        category: "wings",
+        pieces: [
+            {
+                file: "/assets/body/wings_03.svg",
+                layer: "wings",
+            },
+        ],
+        palette: "wings"
+    },
+    {
+        id: "wings_04",
+        name: "Koi",
+        category: "wings",
+        pieces: [
+            {
+                file: "/assets/body/wings_04.svg",
                 layer: "wings",
             },
         ],

@@ -143,8 +143,8 @@ export const colorPalettes = {
     bottomOutline: clothingOutlines,
     shoesFill: clothingColors,
     shoesOutline: clothingOutlines,
-    wingsFill: clothingColors,
-    wingsOutline: clothingOutlines,
+    wingsFill: wingsColors,
+    wingsOutline: wingOutlines,
 }
 
 export const presetPalettes: Record<ColorRole, string>[] = [
