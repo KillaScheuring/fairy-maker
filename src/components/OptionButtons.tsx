@@ -1,8 +1,8 @@
-import {useState} from "react";
+import {type ReactNode, useState} from "react";
 import { useCharacter } from "../character/CharacterContext";
 import {downloadPng, exportCharacterSvg} from "../character/exportCharacterSvg.ts";
 
-const icons = {
+const icons: Record<string, ReactNode> = {
     "shuffle": (
         <svg className={"fill-current w-4 h-4 mr-2"} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
