@@ -409,6 +409,18 @@ export const assetManifest: Asset[] = [
         palette: "bottoms"
     },
     {
+        id: "bottoms_05",
+        name: "Long Stripy Skirt",
+        category: "bottoms",
+        pieces: [
+            {
+                file: "/assets/clothes/front/bottoms_05.svg",
+                layer: "clothesFront",
+            },
+        ],
+        palette: "bottoms"
+    },
+    {
         id: "sleeves_01",
         name: "Sheer",
         category: "sleeves",
