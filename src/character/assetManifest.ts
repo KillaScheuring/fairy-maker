@@ -247,6 +247,30 @@ export const assetManifest: Asset[] = [
         palette: "yarn_balls"
     },
     {
+        id: "knit_pile",
+        name: "Knit Pile",
+        category: "accessory",
+        pieces: [
+            {
+                file: "/assets/accessories/knit_pile.svg",
+                layer: "accessoriesFront",
+            },
+        ],
+        palette: "knit_swatch"
+    },
+    {
+        id: "spinning_wheel",
+        name: "Spinning Wheel",
+        category: "accessory",
+        pieces: [
+            {
+                file: "/assets/accessories/spinning_wheel.svg",
+                layer: "accessoriesFront",
+            },
+        ],
+        palette: "knit_swatch"
+    },
+    {
         id: "background_01",
         name: "Plain Background",
         category: "background",
@@ -352,6 +376,17 @@ export const assetManifest: Asset[] = [
         pieces: [
             {
                 file: "/assets/clothes/hat_02.svg",
+                layer: "accessoriesFront",
+            },
+        ]
+    },
+    {
+        id: "hat_03",
+        name: "Millinery Tea",
+        category: "accessory",
+        pieces: [
+            {
+                file: "/assets/clothes/hat_03.svg",
                 layer: "accessoriesFront",
             },
         ]
@@ -827,7 +862,15 @@ export const assetDisplays: Record<string, {transform: string; transformOrigin: 
         transform: "scale(3)",
         transformOrigin: "50% 15%"
     },
+    hat_03: {
+        transform: "scale(3)",
+        transformOrigin: "50% 15%"
+    },
     yarn_pile: {
+        transform: "scale(3)",
+        transformOrigin: "25% 85%"
+    },
+    knit_pile: {
         transform: "scale(3)",
         transformOrigin: "25% 85%"
     },
